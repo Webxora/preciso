@@ -133,7 +133,7 @@ export function Gallery() {
                 <DialogTrigger asChild>
                   <div
                     className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group hover-lift"
-                    onClick={() => setSelectedImage(image)}
+                    // onClick={() => setSelectedImage(image)}
                   >
                     <ImageWithFallback
                       src={image.src}
