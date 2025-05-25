@@ -1,4 +1,3 @@
-
 import { MainLayout } from "./components/layout/MainLayout";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
@@ -10,7 +9,7 @@ import { Location } from "./components/Location";
 import { Franchise } from "./components/Franchise";
 import { CustomerMoments } from "./components/CustomerMoments";
 import { FloatingFAQButton } from "./components/FAQs";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 export default function App() {
   // useEffect(() => {
