@@ -5,6 +5,12 @@ interface InstagramEmbedProps {
   caption?: boolean;
 }
 
+declare global {
+  interface Window {
+    instgrm?: any;
+  }
+}
+
 export function InstagramEmbed({
   postUrl,
   caption = true,

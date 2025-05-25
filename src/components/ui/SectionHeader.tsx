@@ -1,5 +1,4 @@
-
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { cn } from "./utils";
 
 interface SectionHeaderProps {
@@ -10,15 +9,15 @@ interface SectionHeaderProps {
   children?: ReactNode;
 }
 
-export function SectionHeader({ 
-  title, 
-  subtitle, 
-  align = "center", 
+export function SectionHeader({
+  title,
+  subtitle,
+  align = "center",
   className,
-  children
+  children,
 }: SectionHeaderProps) {
   return (
-    <div 
+    <div
       className={cn(
         "mb-12",
         align === "center" && "text-center",
@@ -26,20 +25,22 @@ export function SectionHeader({
         className
       )}
     >
-      <h2 className={cn(
-        "section-title inline-block",
-        align === "center" && "mx-auto",
-        align === "right" && "ml-auto"
-      )}>
+      <h2
+        className={cn(
+          "section-title inline-block",
+          align === "center" && "mx-auto",
+          align === "right" && "ml-auto"
+        )}
+      >
         {title}
       </h2>
-      
+
       {subtitle && (
         <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
           {subtitle}
         </p>
       )}
-      
+
       {children}
     </div>
   );

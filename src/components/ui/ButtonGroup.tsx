@@ -1,5 +1,4 @@
-
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { cn } from "./utils";
 
 interface ButtonGroupProps {
@@ -9,11 +8,11 @@ interface ButtonGroupProps {
   gap?: "none" | "sm" | "md" | "lg";
 }
 
-export function ButtonGroup({ 
-  children, 
-  align = "left", 
+export function ButtonGroup({
+  children,
+  align = "left",
   className,
-  gap = "md"
+  gap = "md",
 }: ButtonGroupProps) {
   const gapClasses = {
     none: "gap-0",
@@ -23,7 +22,7 @@ export function ButtonGroup({
   };
 
   return (
-    <div 
+    <div
       className={cn(
         "flex flex-wrap items-center",
         gapClasses[gap],

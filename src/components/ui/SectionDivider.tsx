@@ -1,5 +1,4 @@
-
-import React from "react";
+// import React from "react";
 import { cn } from "./utils";
 
 type SectionDividerProps = {
@@ -40,46 +39,44 @@ export function SectionDivider({
   // Apply transformations based on position and flip options
   const getTransform = () => {
     let transform = "";
-    
+
     // Flip for bottom position
     if (position === "bottom") {
       transform += " rotate(180)";
     }
-    
+
     // Flip horizontally if requested
     if (flipX) {
-      transform += position === "bottom" 
-        ? " translate(1600, 0) scale(-1, 1)" 
-        : " translate(1600, 0) scale(-1, 1)";
+      transform +=
+        position === "bottom"
+          ? " translate(1600, 0) scale(-1, 1)"
+          : " translate(1600, 0) scale(-1, 1)";
     }
-    
+
     return transform;
   };
 
   // Style for the container div
-  const containerStyle = position === "top" 
-    ? "top-0 -mt-px" 
-    : "bottom-0 -mb-px";
+  const containerStyle =
+    position === "top" ? "top-0 -mt-px" : "bottom-0 -mb-px";
 
   return (
-    <div className={cn(
-      "absolute left-0 right-0 w-full overflow-hidden pointer-events-none z-10",
-      height,
-      containerStyle,
-      bgColor,
-      className
-    )}>
+    <div
+      className={cn(
+        "absolute left-0 right-0 w-full overflow-hidden pointer-events-none z-10",
+        height,
+        containerStyle,
+        bgColor,
+        className
+      )}
+    >
       <svg
         className="absolute w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1600 96"
         preserveAspectRatio="none"
       >
-        <path
-          className={color}
-          d={getPath()}
-          transform={getTransform()}
-        />
+        <path className={color} d={getPath()} transform={getTransform()} />
       </svg>
     </div>
   );
