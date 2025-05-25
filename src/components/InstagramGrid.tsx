@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 import { InstagramPost } from "./InstagramPost";
-import { ScrollReveal } from "./animation/ScrollReveal";
+// import { ScrollReveal } from "./animation/ScrollReveal";
 import person1 from "@/assets/images/1.png";
 import person2 from "@/assets/images/2.png";
 import person3 from "@/assets/images/3.png";
@@ -94,7 +94,7 @@ export function InstagramGrid() {
 
       {/* Fixed width container with precise grid gap for alignment */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <div key={post.id} className="flex items-stretch h-full">
             <InstagramPost
               imageUrl={post.imageUrl}

@@ -35,7 +35,7 @@ export function InstagramEmbed({
     }
 
     // Apply the black button styling when iframe loads
-    const observer = new MutationObserver((mutations, obs) => {
+    const observer = new MutationObserver(() => {
       const iframe = containerRef.current?.querySelector("iframe");
       if (iframe && iframe !== iframeRef.current) {
         iframeRef.current = iframe;

@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Button } from "./ui/button";
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "./ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs";
 import { Badge } from "./ui/badge";
 import { FullMenuModal } from "./FullMenuModal";
 
@@ -21,15 +16,17 @@ type MenuItem = {
 
 export function Menu() {
   const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("coffee");
+  const [] = useState("coffee");
 
   const coffeeItems: MenuItem[] = [
     {
       id: "dubai-chocolate-drink",
       name: "Dubai Chocolate Drink",
-      description: "Beverage that combines the nutty flavor of pistachios with chocolate drizzle on side",
+      description:
+        "Beverage that combines the nutty flavor of pistachios with chocolate drizzle on side",
       price: "₱220.00",
-      image: "https://food-cms.grab.com/compressed_webp/items/PHITE2025022510484680032/detail/menueditor_item_11e14e1aaa6e4ab481e2bacd053b7ebb_1740481884296893382.webp",
+      image:
+        "https://food-cms.grab.com/compressed_webp/items/PHITE2025022510484680032/detail/menueditor_item_11e14e1aaa6e4ab481e2bacd053b7ebb_1740481884296893382.webp",
       popular: true,
     },
     {
@@ -37,14 +34,17 @@ export function Menu() {
       name: "Mudslide Chocolate Chips",
       description: "Signature blend of chocolate chip and vanilla",
       price: "₱220",
-      image: "https://food-cms.grab.com/compressed_webp/items/PHITE2024112710375939353/detail/menueditor_item_231f16f195db4f72af98bab500021c4f_1732704870898450322.webp",
+      image:
+        "https://food-cms.grab.com/compressed_webp/items/PHITE2024112710375939353/detail/menueditor_item_231f16f195db4f72af98bab500021c4f_1732704870898450322.webp",
     },
     {
       id: "black-sesame-latte",
       name: "Black Sesame Latte",
-      description: "Signture Preciso drink mixed with black sesame and charcoal infused milk and coffee. Served with ice",
+      description:
+        "Signture Preciso drink mixed with black sesame and charcoal infused milk and coffee. Served with ice",
       price: "₱220.00",
-      image: "https://food-cms.grab.com/compressed_webp/items/PHITE20241031011758051332/detail/142727e3ffa1450f8e7719c128f85668_1730338887592849376.webp",
+      image:
+        "https://food-cms.grab.com/compressed_webp/items/PHITE20241031011758051332/detail/142727e3ffa1450f8e7719c128f85668_1730338887592849376.webp",
       popular: true,
     },
     {
@@ -52,7 +52,8 @@ export function Menu() {
       name: "Blackberries",
       description: "Blackberry blend with ice and milk",
       price: "₱200.00",
-      image: "https://food-cms.grab.com/compressed_webp/items/PHITE20241031011801011858/detail/menueditor_item_559b262996d349089a65fd7008cefeec_1731727298317519258.webp"
+      image:
+        "https://food-cms.grab.com/compressed_webp/items/PHITE20241031011801011858/detail/menueditor_item_559b262996d349089a65fd7008cefeec_1731727298317519258.webp",
     },
   ];
 
@@ -78,8 +79,7 @@ export function Menu() {
     {
       id: "granola-bowl",
       name: "Granola Bowl",
-      description:
-        "House-made granola with Greek yogurt and seasonal fruits",
+      description: "House-made granola with Greek yogurt and seasonal fruits",
       price: "₱365",
       // Using a completely different source for this problematic image
       image:
@@ -106,20 +106,15 @@ export function Menu() {
           >
             Our Menu
           </Badge>
-          <h2 className="text-3xl md:text-4xl mb-6">
-            Crafted With Precision
-          </h2>
+          <h2 className="text-3xl md:text-4xl mb-6">Crafted With Precision</h2>
           <p className="text-zinc-600">
-            Each item on our menu is crafted with meticulous
-            attention to detail, from our signature coffee
-            drinks to our delicious food offerings.
+            Each item on our menu is crafted with meticulous attention to
+            detail, from our signature coffee drinks to our delicious food
+            offerings.
           </p>
         </div>
 
-        <Tabs
-          defaultValue="coffee"
-          className="w-full max-w-4xl mx-auto"
-        >
+        <Tabs defaultValue="coffee" className="w-full max-w-4xl mx-auto">
           <TabsList className="grid w-full grid-cols-2 mb-12">
             <TabsTrigger
               value="coffee"
@@ -151,17 +146,13 @@ export function Menu() {
                       />
                       {item.popular && (
                         <div className="absolute top-2 left-2 z-10">
-                          <Badge className="bg-zinc-900">
-                            Popular
-                          </Badge>
+                          <Badge className="bg-zinc-900">Popular</Badge>
                         </div>
                       )}
                     </div>
                     <div className="w-2/3 p-4 flex flex-col justify-center min-h-[120px]">
                       <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-medium">
-                          {item.name}
-                        </h3>
+                        <h3 className="font-medium">{item.name}</h3>
                         <span className="text-zinc-700 ml-2 whitespace-nowrap">
                           {item.price}
                         </span>
@@ -194,17 +185,13 @@ export function Menu() {
                             className="object-cover w-full h-full absolute inset-0"
                             onError={(e) => {
                               // Fallback to a different image if this one fails
-                              (
-                                e.target as HTMLImageElement
-                              ).src =
+                              (e.target as HTMLImageElement).src =
                                 "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80";
                             }}
                           />
                           {item.popular && (
                             <div className="absolute top-2 left-2 z-10">
-                              <Badge className="bg-zinc-900">
-                                Popular
-                              </Badge>
+                              <Badge className="bg-zinc-900">Popular</Badge>
                             </div>
                           )}
                         </>
@@ -217,9 +204,7 @@ export function Menu() {
                           />
                           {item.popular && (
                             <div className="absolute top-2 left-2 z-10">
-                              <Badge className="bg-zinc-900">
-                                Popular
-                              </Badge>
+                              <Badge className="bg-zinc-900">Popular</Badge>
                             </div>
                           )}
                         </>
@@ -227,9 +212,7 @@ export function Menu() {
                     </div>
                     <div className="w-2/3 p-4 flex flex-col justify-center min-h-[120px]">
                       <div className="flex justify-between items-center mb-1">
-                        <h3 className="font-medium">
-                          {item.name}
-                        </h3>
+                        <h3 className="font-medium">{item.name}</h3>
                         <span className="text-zinc-700 ml-2 whitespace-nowrap">
                           {item.price}
                         </span>
