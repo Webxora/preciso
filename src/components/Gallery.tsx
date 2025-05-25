@@ -14,7 +14,7 @@ import { Eye } from "lucide-react";
 
 export function Gallery() {
   const [selectedFilter, setSelectedFilter] = useState("all");
-  const [setSelectedImage] = useState(null);
+  // const [setSelectedImage] = useState(null);
 
   // Gallery images with category tags
   const galleryImages = [
