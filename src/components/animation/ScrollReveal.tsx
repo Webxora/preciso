@@ -1,4 +1,3 @@
-
 import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface ScrollRevealProps {
@@ -10,13 +9,13 @@ interface ScrollRevealProps {
   className?: string;
 }
 
-export function ScrollReveal({ 
-  children, 
-  direction = "up", 
-  delay = 0, 
-  duration = 600, 
+export function ScrollReveal({
+  children,
+  direction = "up",
+  delay = 0,
+  duration = 600,
   distance = 50,
-  className = ""
+  className = "",
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -31,7 +30,7 @@ export function ScrollReveal({
       },
       {
         threshold: 0.15, // Trigger when 15% of the element is visible
-        rootMargin: "0px"
+        rootMargin: "0px",
       }
     );
 
@@ -50,11 +49,16 @@ export function ScrollReveal({
   // Define transform values based on direction
   const getInitialTransform = () => {
     switch (direction) {
-      case "up": return `translateY(${distance}px)`;
-      case "down": return `translateY(-${distance}px)`;
-      case "left": return `translateX(${distance}px)`;
-      case "right": return `translateX(-${distance}px)`;
-      default: return `translateY(${distance}px)`;
+      case "up":
+        return `translateY(${distance}px)`;
+      case "down":
+        return `translateY(-${distance}px)`;
+      case "left":
+        return `translateX(${distance}px)`;
+      case "right":
+        return `translateX(-${distance}px)`;
+      default:
+        return `translateY(${distance}px)`;
     }
   };
 
@@ -68,7 +72,7 @@ export function ScrollReveal({
         transitionProperty: "opacity, transform",
         transitionDuration: `${duration}ms`,
         transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-        transitionDelay: `${delay}ms`
+        transitionDelay: `${delay}ms`,
       }}
     >
       {children}

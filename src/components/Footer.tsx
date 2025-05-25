@@ -1,5 +1,5 @@
 import {
-  Coffee,
+  // Coffee,
   Instagram,
   Facebook,
   MapPin,

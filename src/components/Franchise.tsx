@@ -5,7 +5,7 @@ import {
   TrendingUp,
   Clock,
   Award,
-  DollarSign,
+  // DollarSign,
   Users,
   Info,
   Calendar,
@@ -19,8 +19,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  // CarouselNext,
+  // CarouselPrevious,
 } from "./ui/carousel";
 import { useEffect, useState } from "react";
 
@@ -160,10 +160,9 @@ export function Franchise() {
               Franchise Opportunities
             </h2>
             <p className="text-zinc-300 max-w-2xl mx-auto">
-              Take part in our success story and become a
-              Preciso Coffee Shop franchise owner. We&apos;re
-              looking for passionate entrepreneurs to help
-              expand our premium coffee experience.
+              Take part in our success story and become a Preciso Coffee Shop
+              franchise owner. We&apos;re looking for passionate entrepreneurs
+              to help expand our premium coffee experience.
             </p>
           </ScrollReveal>
         </div>
@@ -176,25 +175,21 @@ export function Franchise() {
                 Franchise Opportunity
               </h3>
               <p className="text-zinc-300 mb-6">
-                Preciso Coffee Shop offers a premium franchise
-                opportunity for entrepreneurs who are passionate
-                about quality coffee and exceptional customer
-                service. Our detailed franchise information
-                package contains everything you need to know
-                about joining our growing family of successful
-                franchisees.
+                Preciso Coffee Shop offers a premium franchise opportunity for
+                entrepreneurs who are passionate about quality coffee and
+                exceptional customer service. Our detailed franchise information
+                package contains everything you need to know about joining our
+                growing family of successful franchisees.
               </p>
 
               <div className="bg-zinc-950 p-4 rounded-[20px] border border-zinc-800 mb-6">
                 <div className="flex items-start gap-3">
                   <Info className="w-5 h-5 text-[var(--coffee-accent)] flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-zinc-400">
-                    Complete information about investment
-                    requirements, royalty fees, and financial
-                    projections is available upon request.
-                    Contact our franchise development team to
-                    receive our comprehensive franchise
-                    information package.
+                    Complete information about investment requirements, royalty
+                    fees, and financial projections is available upon request.
+                    Contact our franchise development team to receive our
+                    comprehensive franchise information package.
                   </p>
                 </div>
               </div>
@@ -213,16 +208,11 @@ export function Franchise() {
               </h3>
               <ul className="space-y-2">
                 {benefitsList.map((benefit, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-2"
-                  >
+                  <li key={index} className="flex items-start gap-2">
                     <span className="text-[var(--coffee-accent)] mt-1">
                       <ChevronRight className="w-4 h-4" />
                     </span>
-                    <span className="text-zinc-300">
-                      {benefit}
-                    </span>
+                    <span className="text-zinc-300">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -240,10 +230,7 @@ export function Franchise() {
                 >
                   <CarouselContent className="h-full">
                     {franchiseImages.map((image, index) => (
-                      <CarouselItem
-                        key={index}
-                        className="h-full"
-                      >
+                      <CarouselItem key={index} className="h-full">
                         <div className="relative h-full w-full">
                           <ImageWithFallback
                             src={image.src}
@@ -296,18 +283,14 @@ export function Franchise() {
                     </div>
                     <div>
                       <p className="italic mb-4 text-zinc-300">
-                        &quot;Joining the Preciso family was the
-                        best business decision I&apos;ve made.
-                        The training and support are
-                        exceptional, and the brand&apos;s
-                        reputation for quality has helped us
-                        build a loyal customer base.&quot;
+                        &quot;Joining the Preciso family was the best business
+                        decision I&apos;ve made. The training and support are
+                        exceptional, and the brand&apos;s reputation for quality
+                        has helped us build a loyal customer base.&quot;
                       </p>
                       <div className="flex justify-between items-center">
                         <div>
-                          <p className="font-medium">
-                            Maria Santos
-                          </p>
+                          <p className="font-medium">Maria Santos</p>
                           <p className="text-sm text-zinc-400">
                             Franchise Owner - Makati City
                           </p>
@@ -336,13 +319,10 @@ export function Franchise() {
         {/* Franchise Process Steps */}
         <ScrollReveal>
           <div className="text-center mb-10">
-            <h3 className="text-2xl mb-4">
-              The Franchise Process
-            </h3>
+            <h3 className="text-2xl mb-4">The Franchise Process</h3>
             <p className="text-zinc-300 max-w-2xl mx-auto">
-              Our streamlined process is designed to help you
-              launch your Preciso franchise efficiently and
-              successfully.
+              Our streamlined process is designed to help you launch your
+              Preciso franchise efficiently and successfully.
             </p>
           </div>
         </ScrollReveal>
@@ -361,13 +341,9 @@ export function Franchise() {
                     <div className="w-6 h-6 rounded-full bg-[var(--coffee-accent)] text-black flex items-center justify-center text-xs font-medium">
                       {step.id}
                     </div>
-                    <h4 className="font-bold text-white">
-                      {step.title}
-                    </h4>
+                    <h4 className="font-bold text-white">{step.title}</h4>
                   </div>
-                  <p className="text-zinc-300 text-sm">
-                    {step.description}
-                  </p>
+                  <p className="text-zinc-300 text-sm">{step.description}</p>
                 </CardContent>
               </Card>
             </ScrollReveal>
@@ -402,9 +378,8 @@ export function Franchise() {
                   Ready to Join the Preciso Family?
                 </h3>
                 <p className="text-zinc-300 max-w-xl">
-                  Take the first step towards owning your own
-                  premium coffee shop franchise. Contact our
-                  franchise team today.
+                  Take the first step towards owning your own premium coffee
+                  shop franchise. Contact our franchise team today.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,5 +1,4 @@
-
-import React from "react";
+// import React from "react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Instagram, Facebook } from "lucide-react";
@@ -18,10 +17,18 @@ export function CustomerMoments() {
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center mb-12">
-            <Badge variant="outline" className="mb-4 border-[var(--coffee-accent)] bg-white text-[var(--coffee-dark)] hover:bg-white/80">Share Your Moments</Badge>
-            <h2 className="text-3xl md:text-4xl mb-4">Preciso Customer Moments</h2>
+            <Badge
+              variant="outline"
+              className="mb-4 border-[var(--coffee-accent)] bg-white text-[var(--coffee-dark)] hover:bg-white/80"
+            >
+              Share Your Moments
+            </Badge>
+            <h2 className="text-3xl md:text-4xl mb-4">
+              Preciso Customer Moments
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              See how our customers enjoy their Preciso experience. Tag us on social media with #PrecisoCoffee to be featured!
+              See how our customers enjoy their Preciso experience. Tag us on
+              social media with #PrecisoCoffee to be featured!
             </p>
           </div>
         </ScrollReveal>
@@ -29,8 +36,12 @@ export function CustomerMoments() {
         <ScrollReveal>
           {/* Hashtags at the top */}
           <div className="flex justify-center mb-6">
-            <Badge className="bg-black text-white text-sm px-3 py-1 mr-2">#PrecisoCoffee</Badge>
-            <Badge className="bg-black text-white text-sm px-3 py-1">#PrecisoMoments</Badge>
+            <Badge className="bg-black text-white text-sm px-3 py-1 mr-2">
+              #PrecisoCoffee
+            </Badge>
+            <Badge className="bg-black text-white text-sm px-3 py-1">
+              #PrecisoMoments
+            </Badge>
           </div>
         </ScrollReveal>
 
@@ -47,7 +58,12 @@ export function CustomerMoments() {
                 // variant="outline"
                 className="bg-black hover:bg-black/90 text-white border-none flex items-center gap-2 h-10 px-4"
                 aria-label="Follow on Instagram"
-                onClick={() => window.open('https://www.instagram.com/precisocoffee', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://www.instagram.com/precisocoffee",
+                    "_blank"
+                  )
+                }
               >
                 <Instagram className="w-5 h-5" />
                 <span className="hidden sm:inline">Instagram</span>
@@ -57,7 +73,12 @@ export function CustomerMoments() {
                 // variant="outline"
                 className="bg-black hover:bg-black/90 text-white border-none flex items-center gap-2 h-10 px-4"
                 aria-label="Follow on TikTok"
-                onClick={() => window.open('https://www.tiktok.com/@preciso.coffee', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://www.tiktok.com/@preciso.coffee",
+                    "_blank"
+                  )
+                }
               >
                 <TikTokIcon className="w-5 h-5" />
                 <span className="hidden sm:inline">TikTok</span>
@@ -67,7 +88,12 @@ export function CustomerMoments() {
                 // variant="outline"
                 className="bg-black hover:bg-black/90 text-white border-none flex items-center gap-2 h-10 px-4"
                 aria-label="Follow on Facebook"
-                onClick={() => window.open('https://www.facebook.com/precisocoffee', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://www.facebook.com/precisocoffee",
+                    "_blank"
+                  )
+                }
               >
                 <Facebook className="w-5 h-5" />
                 <span className="hidden sm:inline">Facebook</span>

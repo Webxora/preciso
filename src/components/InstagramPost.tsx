@@ -1,6 +1,11 @@
-
-import React from "react";
-import { Heart, MessageCircle, Send, Bookmark, ChevronRight } from "lucide-react";
+// import React from "react";
+import {
+  Heart,
+  MessageCircle,
+  Send,
+  Bookmark,
+  ChevronRight,
+} from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import logo from "@/assets/logo.jpg";
 
@@ -11,13 +16,12 @@ interface InstagramPostProps {
   instagramUrl?: string;
 }
 
-export function InstagramPost({ 
-  imageUrl, 
+export function InstagramPost({
+  imageUrl,
   caption = "Coffee clubbing at Preciso Coffee ☕ Join us for a special night of coffee and music!",
   likes = 15,
-  instagramUrl = "https://www.instagram.com/precisocoffee"
+  instagramUrl = "https://www.instagram.com/precisocoffee",
 }: InstagramPostProps) {
-  
   const handleClick = () => {
     window.open(instagramUrl, "_blank");
   };
@@ -41,17 +45,17 @@ export function InstagramPost({
             <p className="text-xs text-gray-500">Preciso Coffee</p>
           </div>
         </div>
-        <button 
+        <button
           className="bg-black text-white px-3 py-1 text-xs font-medium rounded cursor-pointer"
           onClick={handleClick}
         >
           View profile
         </button>
       </div>
-      
+
       {/* Image */}
-      <div 
-        className="instagram-post-image aspect-square relative cursor-pointer" 
+      <div
+        className="instagram-post-image aspect-square relative cursor-pointer"
         onClick={handleClick}
       >
         <ImageWithFallback
@@ -61,56 +65,59 @@ export function InstagramPost({
           height={500}
           className="w-full h-full object-cover"
         />
-        
+
         {/* Image navigation */}
-        <button 
+        <button
           className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/20 rounded-full p-1 cursor-pointer"
           onClick={handleClick}
         >
           <ChevronRight className="w-5 h-5 text-white" />
         </button>
       </div>
-      
+
       {/* Action Bar */}
       <div className="p-3">
         <div className="flex justify-between mb-2">
           <div className="flex gap-4">
-            <button 
-              onClick={handleClick} 
-              aria-label="Like" 
+            <button
+              onClick={handleClick}
+              aria-label="Like"
               className="cursor-pointer hover:opacity-70 transition-opacity"
             >
               <Heart className="w-5 h-5 text-black" />
             </button>
-            <button 
-              onClick={handleClick} 
-              aria-label="Comment" 
+            <button
+              onClick={handleClick}
+              aria-label="Comment"
               className="cursor-pointer hover:opacity-70 transition-opacity"
             >
               <MessageCircle className="w-5 h-5 text-black" />
             </button>
-            <button 
-              onClick={handleClick} 
-              aria-label="Share" 
+            <button
+              onClick={handleClick}
+              aria-label="Share"
               className="cursor-pointer hover:opacity-70 transition-opacity"
             >
               <Send className="w-5 h-5 text-black" />
             </button>
           </div>
-          <button 
-            onClick={handleClick} 
-            aria-label="Save" 
+          <button
+            onClick={handleClick}
+            aria-label="Save"
             className="cursor-pointer hover:opacity-70 transition-opacity"
           >
             <Bookmark className="w-5 h-5 text-black" />
           </button>
         </div>
-        
+
         {/* Likes */}
-        <p className="font-semibold text-xs mb-1 cursor-pointer" onClick={handleClick}>
+        <p
+          className="font-semibold text-xs mb-1 cursor-pointer"
+          onClick={handleClick}
+        >
           {likes} likes
         </p>
-        
+
         {/* Caption */}
         {caption && (
           <p className="text-xs mb-2 cursor-pointer" onClick={handleClick}>
@@ -118,24 +125,24 @@ export function InstagramPost({
             {caption}
           </p>
         )}
-        
+
         {/* Comment placeholder */}
-        <div 
+        <div
           className="text-gray-400 text-xs mt-3 border-t border-gray-100 pt-3 cursor-pointer"
           onClick={handleClick}
         >
           Add a comment...
         </div>
       </div>
-      
+
       {/* Footer */}
-      <div 
+      <div
         className="p-3 border-t border-gray-100 text-center cursor-pointer"
         onClick={handleClick}
       >
-        <a 
-          href={instagramUrl} 
-          target="_blank" 
+        <a
+          href={instagramUrl}
+          target="_blank"
           rel="noopener noreferrer"
           className="text-black font-medium text-xs"
         >
