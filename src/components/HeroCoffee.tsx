@@ -90,7 +90,7 @@ export function HeroCoffee() {
       </div>
 
       {/* Product tag with price */}
-      <div className="absolute -left-4 bottom-10 bg-[var(--coffee-accent)] py-1 px-4 rounded-xl shadow-md rotate-[-15deg] z-10">
+      <div className="absolute -left-4 bottom-10 bg-[var(--coffee-accent)] py-1 px-4 rounded-xl shadow-md rotate-[-15deg]">
         <div className="text-[var(--coffee-dark)] text-xs font-semibold">
           Best Seller
         </div>

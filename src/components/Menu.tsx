@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs";
 import { Badge } from "./ui/badge";
 import { FullMenuModal } from "./FullMenuModal";
+import food4 from "@/assets/images/food-4.png";
 
 type MenuItem = {
   id: string;
@@ -59,40 +60,12 @@ export function Menu() {
 
   const foodItems: MenuItem[] = [
     {
-      id: "croissant",
-      name: "Butter Croissant",
-      description: "Flaky, buttery pastry baked fresh daily",
-      price: "₱185",
-      image:
-        "https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+      id: "turkey-pastrami",
+      name: "TURKEY PASTRAMI",
+      description: "Delicious turkey pastrami on fresh-baked bread with your choice of toppings, vegetables, and sauces.",
+      price: "₱325",
+      image: food4,
       popular: true,
-    },
-    {
-      id: "avocado-toast",
-      name: "Avocado Toast",
-      description:
-        "Sourdough bread with mashed avocado, sea salt, and red pepper flakes",
-      price: "₱425",
-      image:
-        "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    },
-    {
-      id: "granola-bowl",
-      name: "Granola Bowl",
-      description: "House-made granola with Greek yogurt and seasonal fruits",
-      price: "₱365",
-      // Using a completely different source for this problematic image
-      image:
-        "https://images.unsplash.com/photo-1546039907-7fa05f864c02?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
-    },
-    {
-      id: "sandwich",
-      name: "Prosciutto Sandwich",
-      description:
-        "Prosciutto with arugula, tomato, and basil mayo on ciabatta",
-      price: "₱485",
-      image:
-        "https://images.unsplash.com/photo-1554433607-66b5efe9d304?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
     },
   ];
 
@@ -126,7 +99,7 @@ export function Menu() {
               value="food"
               className="data-[state=active]:bg-zinc-900 data-[state=active]:text-white"
             >
-              Pastries
+              Subways
             </TabsTrigger>
           </TabsList>
 

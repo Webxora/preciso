@@ -10,9 +10,13 @@ import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ScrollArea } from "./ui/scroll-area";
 import { X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ScrollReveal } from "./animation/ScrollReveal";
 import { cn } from "@/lib/utils";
+import food5 from "@/assets/images/food-5.png";
+import food4 from "@/assets/images/food-4.png";
+import food3 from "@/assets/images/food-3.png";
+import food2 from "@/assets/images/food-2.png";
 
 type MenuItem = {
   id: string;
@@ -42,12 +46,23 @@ function MenuCategory({
   filters = [],
 }: MenuCategoryProps) {
   const [selectedFilter, setSelectedFilter] = useState("popular");
+  const [filteredItem, seFilteredItem] = useState<MenuItem[]>([]);
 
-  // Filter images based on selected category
-  const filteredItem = hasCategory
-    ? items.filter((item) => item.categories?.includes(selectedFilter))
-    : items;
-  console.log(filteredItem);
+
+  useEffect(() => {
+    // Filter images based on selected category
+    const filtered = hasCategory
+      ? items.filter((item) => item.categories?.includes(selectedFilter))
+      : [];
+    seFilteredItem(filtered);
+    console.log(selectedFilter)
+  }, [selectedFilter])
+
+  // const handleFilterChange = (filter: string) => {
+  //   console.log(filter)
+  // }
+
+  // console.log(filteredItem);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {!hasCategory &&
@@ -119,7 +134,7 @@ function MenuCategory({
             </ScrollReveal>
           </div>
 
-          {filteredItem.map((item) => (
+          {filteredItem?.map((item) => (
             <ScrollReveal
               delay={0.2}
               key={item.id}
@@ -369,17 +384,6 @@ const coffeeItems: MenuItem[] = [
     categories: ["non-coffee"],
   },
   {
-    id: "signature-batirol",
-    name: "Signature Batirol",
-    price: "₱190.00",
-    description: "Chocolate batirol with nuts. Served with ice",
-    image:
-      "https://food-cms.grab.com/compressed_webp/items/PHITE20241031011757029996/detail/3f8ca6d973ea4ba39250afe6b337652f_1730339375320557019.webp",
-    popular: false,
-    servedAs: "Iced",
-    categories: ["non-coffee"],
-  },
-  {
     id: "roasted-almond-foam",
     name: "Roasted Almond Foam",
     price: "₱220.00",
@@ -470,6 +474,56 @@ const coffeeItems: MenuItem[] = [
     servedAs: "Iced",
     categories: ["refreshers"],
   },
+  {
+    id: "honey-peach",
+    name: "Honey Peach",
+    price: "₱200.00",
+    description: "Peach blend with ice and milk drizzled with honey.",
+    image: "https://food-cms.grab.com/compressed_webp/items/PHITE2024111603424251443/detail/menueditor_item_0480257e2a0a47e8aca5ff052989deae_1731728859261976289.webp",
+    popular: false,
+    servedAs: "Iced",
+    categories: ["fruit-swirl"],
+  },
+  {
+    id: "blackberries",
+    name: "Blackberries",
+    price: "₱200.00",
+    description: "Blackberry blend with ice and milk",
+    image: "https://food-cms.grab.com/compressed_webp/items/PHITE20241031011801011858/detail/menueditor_item_559b262996d349089a65fd7008cefeec_1731727298317519258.webp",
+    popular: false,
+    servedAs: "Iced",
+    categories: ["fruit-swirl"],
+  },
+  {
+    id: "iced-hojicha-matcha",
+    name: "Iced Hojicha Matcha",
+    price: "₱190.00",
+    description: "Iced unsweetened roasted matcha, hints of nutty notes.",
+    image: "https://food-cms.grab.com/compressed_webp/items/PHITE2024112710462174099/detail/menueditor_item_866670eaed684231bb4206a2b3ba7bb3_1732705410574370787.webp",
+    popular: false,
+    servedAs: "Iced",
+    categories: ["matcha"],
+  },
+  {
+    id: "tuscan-truffle",
+    name: "Tuscan Truffle",
+    price: "₱180.00",
+    description: "Cream soda with hints of tiramisu, topped with tiramisu foam",
+    image: "https://food-cms.grab.com/compressed_webp/items/PHITE2024112710423945113/detail/menueditor_item_13cfdea6c4f642189042782efd1bbbbd_1732705285110425619.webp",
+    popular: false,
+    servedAs: "Iced",
+    categories: ["cream-fizz-soda"],
+  },
+  {
+    id: "mudslide-chocolate-chips",
+    name: "Mudslide Chocolate Chips",
+    price: "₱220.00",
+    description: "Signature blend of chocolate chip and vanilla",
+    image: "https://food-cms.grab.com/compressed_webp/items/PHITE2024112710423945113/detail/menueditor_item_13cfdea6c4f642189042782efd1bbbbd_1732705285110425619.webp",
+    popular: false,
+    servedAs: "Iced",
+    categories: ["blended-signatures"],
+  },
 ];
 
 // Filter categories
@@ -490,44 +544,20 @@ const coffeeFilters: FilterItem[] = [
 // Food items data
 const foodItems: MenuItem[] = [
   {
-    id: "avocado-toast",
-    name: "Avocado Toast",
-    price: "₱445",
-    description:
-      "Sourdough toast topped with smashed avocado, cherry tomatoes, microgreens, and a sprinkle of everything bagel seasoning.",
-    image:
-      "https://images.unsplash.com/photo-1588137378633-dea1336ce1e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    popular: true,
-    servedAs: "Served all day",
-  },
-  {
     id: "granola-bowl",
     name: "Granola Bowl",
     price: "₱375",
     description:
       "House-made granola with Greek yogurt, fresh berries, banana slices, and a drizzle of local honey.",
-    image:
-      "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    image: food2,
     servedAs: "Available until 2pm",
-  },
-  {
-    id: "breakfast-sandwich",
-    name: "Breakfast Sandwich",
-    price: "₱460",
-    description:
-      "Cage-free egg, white cheddar, avocado, and tomato on a toasted everything bagel.",
-    image:
-      "https://images.unsplash.com/photo-1600699290300-8eac43a309c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    popular: true,
-    servedAs: "Breakfast & lunch",
   },
   {
     id: "croissant",
     name: "Butter Croissant",
     price: "₱195",
     description: "Flaky, buttery pastry made fresh daily in our bakery.",
-    image:
-      "https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    image: food3,
     servedAs: "Freshly baked daily",
   },
 ];
@@ -540,19 +570,7 @@ const subwayItems: MenuItem[] = [
     price: "₱325",
     description:
       "Delicious turkey pastrami on fresh-baked bread with your choice of toppings, vegetables, and sauces.",
-    image:
-      "https://images.unsplash.com/photo-1550507992-eb63ffee0847?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    popular: true,
-    servedAs: "6-inch or footlong",
-  },
-  {
-    id: "smoked-ham",
-    name: "SMOKED HAM",
-    price: "₱299",
-    description:
-      "Classic smoked ham on our signature bread with your favorite fresh vegetables and condiments.",
-    image:
-      "https://images.unsplash.com/photo-1542488246-1311a1b68346?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    image: food4,
     popular: true,
     servedAs: "6-inch or footlong",
   },
@@ -566,41 +584,9 @@ const dessertItems: MenuItem[] = [
     price: "₱175",
     description:
       "A classic chocolate chip cookie with a crisp edge and soft center, made with high-quality chocolate.",
-    image:
-      "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    image: food5,
     popular: true,
     servedAs: "Baked fresh daily",
-  },
-  {
-    id: "coffee-cake",
-    name: "Coffee Cake",
-    price: "₱245",
-    description:
-      "Moist cinnamon-infused cake with a crumbly streusel topping, perfect for pairing with your favorite coffee.",
-    image:
-      "https://images.unsplash.com/photo-1621303837174-89787a7d4729?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    servedAs: "Slice or whole cake",
-  },
-  {
-    id: "tiramisu",
-    name: "Tiramisu Cup",
-    price: "₱325",
-    description:
-      "Italian dessert made with espresso-soaked ladyfingers, layered with mascarpone cheese and dusted with cocoa powder.",
-    image:
-      "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    popular: true,
-    servedAs: "Chilled",
-  },
-  {
-    id: "almond-biscotti",
-    name: "Almond Biscotti",
-    price: "₱145",
-    description:
-      "Twice-baked Italian cookie with almonds, perfect for dipping in coffee or espresso.",
-    image:
-      "https://images.unsplash.com/photo-1619021099853-33e36760799a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    servedAs: "Perfect for dipping",
   },
 ];
 

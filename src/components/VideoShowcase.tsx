@@ -39,7 +39,7 @@ export function VideoShowcase() {
     } else {
       // Use a promise with proper error handling
       const playPromise = video.play();
-      
+
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
@@ -67,8 +67,8 @@ export function VideoShowcase() {
       <div className="container mx-auto px-4">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <Badge 
-              variant="outline" 
+            <Badge
+              variant="outline"
               className="mb-3 border-zinc-200 bg-zinc-50 text-zinc-800 hover:bg-zinc-100"
             >
               Experience
@@ -82,14 +82,14 @@ export function VideoShowcase() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div 
+          <div
             ref={containerRef}
             className="relative mx-auto rounded-2xl overflow-hidden shadow-xl mb-16"
-            style={{ 
-              width: "100%", 
-              maxWidth: "960px", 
-              height: "auto", 
-              aspectRatio: "16/9" 
+            style={{
+              width: "100%",
+              maxWidth: "960px",
+              height: "auto",
+              aspectRatio: "16/9"
             }}
           >
             {/* Fallback image shown initially and if video fails */}
@@ -102,9 +102,9 @@ export function VideoShowcase() {
                 className="w-full h-full object-cover"
               />
             </div>
-            
+
             {/* Video Element with controls hidden */}
-            <video 
+            <video
               ref={videoRef}
               className={`w-full h-full object-cover absolute inset-0 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
               poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
@@ -120,14 +120,16 @@ export function VideoShowcase() {
               <source src={introVideo} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            
+
             {/* Video Controls Overlay */}
             <div className="absolute inset-0 flex flex-col justify-between p-6 z-10">
               {/* Video main play button */}
-              <div className="flex-grow flex items-center justify-center">
-                <button 
+              <div className="flex-grow flex items-center justify-center group relative">
+                <button
                   onClick={togglePlay}
-                  className="w-16 h-16 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center hover:bg-black/30 transition-all"
+                  className="w-16 h-16 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center 
+                            opacity-0 group-hover:opacity-100 transition-opacity duration-300 
+                            hover:bg-black/30 cursor-pointer"
                   aria-label={isPlaying ? "Pause video" : "Play video"}
                 >
                   {isPlaying ? (
@@ -137,11 +139,12 @@ export function VideoShowcase() {
                   )}
                 </button>
               </div>
-              
+
+
               {/* Bottom controls with caption */}
               <div className="flex justify-between items-center">
                 {/* Left side volume control */}
-                <button 
+                <button
                   onClick={toggleMute}
                   className="w-10 h-10 rounded-full bg-black/20 flex items-center justify-center hover:bg-black/30 transition-all"
                   aria-label={isMuted ? "Unmute video" : "Mute video"}
@@ -152,7 +155,7 @@ export function VideoShowcase() {
                     <Volume2 className="w-5 h-5 text-white" />
                   )}
                 </button>
-                
+
                 {/* Right side caption */}
                 <div className="bg-black/20 backdrop-blur-sm rounded-full py-2 px-4">
                   <p className="text-white text-sm font-medium">Handcrafted with passion and precision</p>
@@ -175,7 +178,7 @@ export function VideoShowcase() {
                 We carefully source our beans from sustainable farms, selecting only the highest quality single-origin varieties.
               </p>
             </div>
-            
+
             {/* Precise Roasting */}
             <div className="bg-white p-8 shadow-sm hover-lift">
               <div className="flex flex-col items-start mb-6">
@@ -187,7 +190,7 @@ export function VideoShowcase() {
                 Our roasting process is calibrated to perfection, bringing out the unique flavor profile of each bean variety.
               </p>
             </div>
-            
+
             {/* Artisanal Brewing */}
             <div className="bg-white p-8 shadow-sm hover-lift">
               <div className="flex flex-col items-start mb-6">

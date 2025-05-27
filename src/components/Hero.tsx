@@ -112,7 +112,7 @@ export function Hero() {
             </ScrollReveal>
 
             {/* Coffee showcase gallery */}
-            <ScrollReveal delay={500}>
+            <ScrollReveal delay={500} className="hidden md:block">
               <div className="grid grid-cols-3 gap-2 mt-6">
                 <div className="rounded-lg overflow-hidden h-20">
                   <ImageWithFallback
@@ -242,7 +242,7 @@ export function Hero() {
       </div>
 
       {/* Coffee store details at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 bg-black py-4">
+      <div className="absolute bottom-0 left-0 right-0 bg-black py-4 hidden sm:flex">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-between items-center gap-4">
             <div className="flex items-center gap-3">

@@ -9,6 +9,7 @@ import {
   Users,
   Info,
   Calendar,
+  X,
 } from "lucide-react";
 import { ScrollReveal } from "./animation/ScrollReveal";
 import { Button } from "./ui/button";
@@ -23,10 +24,19 @@ import {
   // CarouselPrevious,
 } from "./ui/carousel";
 import { useEffect, useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "./ui/custom-dialog";
+import BookingForm from "./BookingForm";
 
 export function Franchise() {
   const [api, setApi] = useState<any>();
   const [current, setCurrent] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Auto-rotate carousel
   useEffect(() => {
@@ -195,7 +205,7 @@ export function Franchise() {
               </div>
 
               <div className="flex justify-center md:justify-start">
-                <Button className="bg-[var(--coffee-accent)] hover:bg-[var(--coffee-accent)]/80 text-black rounded-[20px]">
+                <Button className="bg-[var(--coffee-accent)] hover:bg-[var(--coffee-accent)]/80 text-black rounded-[20px]" onClick={() => setIsOpen(true)}>
                   Learn more
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
@@ -260,11 +270,10 @@ export function Franchise() {
                   {franchiseImages.map((_, index) => (
                     <button
                       key={index}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        current === index
-                          ? "bg-[var(--coffee-accent)] w-4"
-                          : "bg-white/60 hover:bg-white/80"
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-all ${current === index
+                        ? "bg-[var(--coffee-accent)] w-4"
+                        : "bg-white/60 hover:bg-white/80"
+                        }`}
                       onClick={() => api?.scrollTo(index)}
                       aria-label={`Go to slide ${index + 1}`}
                     />
@@ -386,6 +395,7 @@ export function Franchise() {
                 <Button
                   size="lg"
                   className="bg-[var(--coffee-accent)] text-black hover:bg-[var(--coffee-accent)]/80 rounded-[20px]"
+                  onClick={() => setIsOpen(true)}
                 >
                   <Calendar className="mr-2 w-4 h-4" />
                   Schedule a meeting
@@ -395,6 +405,33 @@ export function Franchise() {
           </div>
         </ScrollReveal>
       </div>
+
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        {/* Use our custom dialog content with hideCloseButton prop */}
+        <DialogContent
+          className="sm:max-w-md max-h-screen overflow-y-auto flex flex-col p-0"
+          hideCloseButton={true}
+        >
+          {/* Custom close button */}
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-4 right-4 z-10 rounded-full h-10 w-10 flex items-center justify-center bg-black text-white hover:bg-zinc-800 transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          <div className="p-6 pt-10 pb-4">
+            <DialogHeader>
+              <DialogTitle className="text-2xl">Schedule a Meeting</DialogTitle>
+              <DialogDescription>
+                Fill in the details below to book your meeting.
+              </DialogDescription>
+            </DialogHeader>
+          </div>
+          <BookingForm />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
