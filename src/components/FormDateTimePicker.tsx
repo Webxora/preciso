@@ -68,14 +68,14 @@ export function FormDateTimePicker({ form, name, label, description = "" }: Date
                                 <Button
                                     variant={"outline"}
                                     className={cn(
-                                        "w-full pl-3 text-left font-normal",
+                                        "w-full pl-3 text-left font-normal border",
                                         !field.value && "text-muted-foreground"
                                     )}
                                 >
                                     {field.value ? (
                                         format(field.value, "MM/dd/yyyy hh:mm aa")
                                     ) : (
-                                        <span>MM/DD/YYYY hh:mm aa</span>
+                                        <span>MM/DD/YYYY --:-- --</span>
                                     )}
                                     <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                                 </Button>

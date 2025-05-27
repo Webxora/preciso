@@ -29,9 +29,9 @@ export default function BookingForm() {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 px-6 pb-6">
                 <FormInput form={form} name="name" label="Name" placeholder="Enter your name" />
-                <FormInput form={form} name="email" label="Email" placeholder="Enter your email address" type="email" />
+                <FormInput form={form} name="email" label="Email" placeholder="you@example.com" type="email" />
                 <FormDateTimePicker form={form} name="dateTime" label="Date and Time" description="Please select your preferred date and time." />
-                <FormTextarea form={form} name="message" label="Message (Optional)" />
+                <FormTextarea form={form} name="message" label="Message (Optional)" placeholder="Add any notes" />
                 <div className="flex justify-end gap-2 pt-2">
                     <Button type="submit">Book Meeting</Button>
                 </div>
