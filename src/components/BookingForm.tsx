@@ -6,6 +6,8 @@ import { FormDateTimePicker } from "./FormDateTimePicker";
 import FormInput from "./FormInput";
 import { Button } from "./ui/button";
 import FormTextarea from "./FormTextarea";
+import { toast } from "sonner";
+import { format } from "date-fns";
 
 const formSchema = z.object({
     name: z.string({ required_error: "Name is required" }).min(1),
@@ -23,6 +25,7 @@ export default function BookingForm() {
 
     const onSubmit = async (data: z.infer<typeof formSchema>) => {
         console.log(data);
+        toast.success(`Your booking is confirmed! See you on ${format(data.dateTime, "PPP hh:mm b")}`);
     }
 
     return (
