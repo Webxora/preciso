@@ -429,7 +429,7 @@ export function Franchise() {
               </DialogDescription>
             </DialogHeader>
           </div>
-          <BookingForm />
+          <BookingForm setIsOpen={setIsOpen} />
         </DialogContent>
       </Dialog>
     </div>

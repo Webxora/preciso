@@ -18,7 +18,11 @@ const formSchema = z.object({
     message: z.string().optional(),
 });
 
-export default function BookingForm() {
+type MyModalProps = {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function BookingForm({ setIsOpen }: MyModalProps) {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
     });
@@ -26,6 +30,7 @@ export default function BookingForm() {
     const onSubmit = async (data: z.infer<typeof formSchema>) => {
         console.log(data);
         toast.success(`Your booking is confirmed! See you on ${format(data.dateTime, "PPP hh:mm b")}`);
+        setIsOpen(false)
     }
 
     return (
