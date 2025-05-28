@@ -210,20 +210,20 @@ function display12HourValue(hours: number) {
     return `0${hours % 12}`;
 }
 
-function genMonths(locale: Pick<Locale, 'options' | 'localize' | 'formatLong'>) {
-    return Array.from({ length: 12 }, (_, i) => ({
-        value: i,
-        label: format(new Date(2021, i), 'MMMM', { locale }),
-    }));
-}
+// function genMonths(locale: Pick<Locale, 'options' | 'localize' | 'formatLong'>) {
+//     return Array.from({ length: 12 }, (_, i) => ({
+//         value: i,
+//         label: format(new Date(2021, i), 'MMMM', { locale }),
+//     }));
+// }
 
-function genYears(yearRange = 50) {
-    const today = new Date();
-    return Array.from({ length: yearRange * 2 + 1 }, (_, i) => ({
-        value: today.getFullYear() - yearRange + i,
-        label: (today.getFullYear() - yearRange + i).toString(),
-    }));
-}
+// function genYears(yearRange = 50) {
+//     const today = new Date();
+//     return Array.from({ length: yearRange * 2 + 1 }, (_, i) => ({
+//         value: today.getFullYear() - yearRange + i,
+//         label: (today.getFullYear() - yearRange + i).toString(),
+//     }));
+// }
 
 // ---------- utils end ----------
 
