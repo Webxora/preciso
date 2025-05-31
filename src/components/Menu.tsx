@@ -17,7 +17,7 @@ type MenuItem = {
 
 export function Menu() {
   const [isFullMenuOpen, setIsFullMenuOpen] = useState(false);
-  const [] = useState("coffee");
+  // const [] = useState("coffee");
 
   const coffeeItems: MenuItem[] = [
     {

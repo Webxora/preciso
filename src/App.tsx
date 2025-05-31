@@ -9,26 +9,8 @@ import { Location } from "./components/Location";
 import { Franchise } from "./components/Franchise";
 import { CustomerMoments } from "./components/CustomerMoments";
 import { FloatingFAQButton } from "./components/FAQs";
-// import { useEffect } from "react";
 
 export default function App() {
-  // useEffect(() => {
-  //   const testBooking = async () => {
-  //      const res = await fetch("https://script.google.com/macros/s/AKfycbwtyZBYfjd4DFR3UwBQEF1_BovNxaBvpS4PBwQhy-f_f_VUq5uwN-7sIRSptbyQ7IdDzQ/exec", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({
-  //         title: "Consultation with Jayvee",
-  //         startTime: "2025-05-26T10:00:00",
-  //         endTime: "2025-05-26T11:00:00",
-  //         description: "Zoom link will be sent after confirmation.",
-  //         email: "zbenedictjhon97@gmail.com"
-  //       }),
-  //     });
-  //     console.log(res);
-  //   }
-  //   testBooking()
-  // }, [])
   return (
     <MainLayout>
       {/* Hero Section */}

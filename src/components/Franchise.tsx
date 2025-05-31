@@ -409,7 +409,7 @@ export function Franchise() {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         {/* Use our custom dialog content with hideCloseButton prop */}
         <DialogContent
-          className="sm:max-w-md max-h-screen overflow-y-auto flex flex-col p-0"
+          className="sm:max-w-xl max-h-screen overflow-y-auto flex flex-col p-0"
           hideCloseButton={true}
         >
           {/* Custom close button */}
@@ -429,6 +429,7 @@ export function Franchise() {
               </DialogDescription>
             </DialogHeader>
           </div>
+
           <BookingForm setIsOpen={setIsOpen} />
         </DialogContent>
       </Dialog>
