@@ -72,8 +72,17 @@ export default function BookingForm({ setIsOpen }: MyModalProps) {
     };
 
     const handleActiveBooking = (hour: number): boolean => {
+        const now = new Date();
         const selectedDate = form?.watch("schedule");
         if (!selectedDate) return false;
+
+        if (now.getMonth() === selectedDate.getMonth() && now.getDate() === selectedDate.getDate()) {
+            const updatedDate = setMinutes(setHours(selectedDate, hour), 0);
+            if (now.getHours() > updatedDate.getHours()) {
+                return true;
+            }
+        }
+
         const updatedDate = setMinutes(setHours(selectedDate, hour), 0);
         const isTaken = bookings?.some(
             (item) => new Date(item.schedule).getTime() === updatedDate.getTime()

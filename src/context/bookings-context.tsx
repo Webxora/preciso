@@ -22,7 +22,7 @@ export const BookingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         refetchOnWindowFocus: false,
         retry: 1,
     });
-
+    // console.log(data);
     return (
         <BookingsContext.Provider value={{ bookings: data, isLoading, error, refetch }}>
             {children}
