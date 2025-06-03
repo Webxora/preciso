@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
+import { useIsMobile } from "../ui/use-mobile";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -18,6 +19,7 @@ export function ScrollReveal({
   distance = 50,
   className = "",
 }: ScrollRevealProps) {
+  const isMobile = useIsMobile();
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -30,7 +32,7 @@ export function ScrollReveal({
         }
       },
       {
-        threshold: 0.15, // Trigger when 15% of the element is visible
+        threshold: isMobile ? 0 : 0.15, // Trigger when 15% of the element is visible
         rootMargin: "0px",
       }
     );
@@ -45,7 +47,7 @@ export function ScrollReveal({
         observer.unobserve(currentRef);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   // Define transform values based on direction
   const getInitialTransform = () => {
